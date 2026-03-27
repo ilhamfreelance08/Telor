@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:           #f5f4f0;
+  --surface:      #ffffff;
+  --border:       rgba(0,0,0,0.12);
+  --border-md:    rgba(0,0,0,0.22);
+  --text:         #1a1a18;
+  --muted:        #6b6b67;
+  --radius:       12px;
+  --radius-sm:    8px;
+  --green-bg:     #e1f5ee;
+  --green-text:   #0f6e56;
+  --red-bg:       #fcebeb;
+  --red-text:     #a32d2d;
+  --secondary-bg: #f1efe8;
+  --amber-bg:     #faeeda;
+  --amber-text:   #854f0b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:           #1a1a18;
+    --surface:      #242422;
+    --border:       rgba(255,255,255,0.1);
+    --border-md:    rgba(255,255,255,0.2);
+    --text:         #f0ede6;
+    --muted:        #9a9890;
+    --secondary-bg: #2c2c2a;
+    --green-bg:     #04342c;
+    --green-text:   #9fe1cb;
+    --red-bg:       #501313;
+    --red-text:     #f7c1c1;
+    --amber-bg:     #412402;
+    --amber-text:   #fac775;
+  }
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+header              { margin-bottom: 1.75rem; }
+header h1           { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+header p            { font-size: 13px; color: var(--muted); }
+
+/* ── Card ── */
+.card {
+  background:    var(--surface);
+  border:        0.5px solid var(--border);
+  border-radius: var(--radius);
+  padding:       1.25rem;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size:      11px;
+  font-weight:    500;
+  color:          var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom:  1rem;
+}
+
+/* ── Harga kemasan grid ── */
+.kemasan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.kemasan-card {
+  background:    var(--secondary-bg);
+  border:        0.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding:       0.875rem 1rem;
+}
+
+.kemasan-card .k-label {
+  font-size:     13px;
+  font-weight:   500;
+  color:         var(--text);
+  margin-bottom: 2px;
+}
+
+.kemasan-card .k-sub {
+  font-size:     11px;
+  color:         var(--muted);
+  margin-bottom: 8px;
+}
+
+.kemasan-card .k-input-wrap {
+  display:     flex;
+  align-items: center;
+  gap:         6px;
+}
+
+.kemasan-card .k-rp {
+  font-size:  13px;
+  color:      var(--muted);
+  flex-shrink: 0;
+}
+
+.kemasan-card .k-input {
+  flex:          1;
+  padding:       6px 8px;
+  font-size:     15px;
+  font-weight:   600;
+  color:         var(--text);
+  background:    var(--surface);
+  border:        0.5px solid var(--border-md);
+  border-radius: var(--radius-sm);
+  min-width:     0;
+  font-family:   inherit;
+}
+
+.kemasan-card .k-input:focus {
+  outline:      none;
+  border-color: var(--text);
+}
+
+/* ── Field row ── */
+.field-row {
+  display:       flex;
+  align-items:   center;
+  gap:           10px;
+  margin-bottom: 10px;
+}
+
+.field-row label {
+  font-size:  14px;
+  min-width:  180px;
+  flex-shrink: 0;
+  color:      var(--text);
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  flex:          1;
+  padding:       8px 12px;
+  font-size:     14px;
+  font-family:   inherit;
+  border:        0.5px solid var(--border-md);
+  border-radius: var(--radius-sm);
+  background:    var(--bg);
+  color:         var(--text);
+  outline:       none;
+  transition:    border-color 0.15s;
+  min-width:     0;
+}
+
+input:focus, select:focus { border-color: var(--text); }
+
+.unit-text {
+  font-size: 13px;
+  color:     var(--muted);
+  min-width: 28px;
+}
+
+/* ── Transaksi rows ── */
+.row-header {
+  display:               grid;
+  grid-template-columns: 1fr 130px 100px auto;
+  gap:                   8px;
+  margin-bottom:         6px;
+}
+
+.row-header span {
+  font-size:      11px;
+  font-weight:    500;
+  color:          var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.transaksi-row {
+  display:               grid;
+  grid-template-columns: 1fr 130px 100px auto;
+  gap:                   8px;
+  align-items:           center;
+  margin-bottom:         8px;
+}
+
+/* ── Buttons ── */
+.btn-hapus {
+  background:    none;
+  border:        none;
+  cursor:        pointer;
+  color:         var(--muted);
+  font-size:     18px;
+  line-height:   1;
+  padding:       4px 6px;
+  border-radius: var(--radius-sm);
+  transition:    color 0.15s, background 0.15s;
+  font-family:   inherit;
+}
+.btn-hapus:hover { color: var(--red-text); background: var(--red-bg); }
+
+.btn-tambah {
+  display:       inline-flex;
+  align-items:   center;
+  gap:           6px;
+  padding:       8px 14px;
+  font-size:     13px;
+  font-weight:   500;
+  background:    transparent;
+  border:        0.5px solid var(--border-md);
+  border-radius: var(--radius-sm);
+  cursor:        pointer;
+  color:         var(--text);
+  margin-top:    6px;
+  font-family:   inherit;
+  transition:    background 0.15s;
+}
+.btn-tambah:hover { background: var(--secondary-bg); }
+
+.btn-hitung {
+  padding:       10px 24px;
+  font-size:     14px;
+  font-weight:   600;
+  background:    var(--text);
+  color:         var(--bg);
+  border:        none;
+  border-radius: var(--radius-sm);
+  cursor:        pointer;
+  font-family:   inherit;
+  transition:    opacity 0.15s;
+}
+.btn-hitung:hover { opacity: 0.82; }
+
+.btn-wrap {
+  margin-bottom: 1rem;
+  text-align:    right;
+}
+
+/* ── Metrics ── */
+.metrics {
+  display:               grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap:                   10px;
+  margin-bottom:         1.25rem;
+}
+
+.metric {
+  background:    var(--secondary-bg);
+  border-radius: var(--radius-sm);
+  padding:       0.875rem 1rem;
+}
+
+.metric-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.metric-value { font-size: 20px; font-weight: 600; color: var(--text); }
+.metric-value.profit { color: var(--green-text); }
+.metric-value.loss   { color: var(--red-text); }
+
+/* ── Divider ── */
+.divider { border: none; border-top: 0.5px solid var(--border); margin: 1rem 0; }
+
+/* ── Table ── */
+.table-wrap        { overflow-x: auto; }
+table              { width: 100%; font-size: 13px; border-collapse: collapse; }
+th {
+  text-align:    left;
+  padding:       8px 10px;
+  font-size:     12px;
+  font-weight:   500;
+  color:         var(--muted);
+  border-bottom: 0.5px solid var(--border);
+}
+td {
+  padding:       8px 10px;
+  border-bottom: 0.5px solid var(--border);
+  color:         var(--text);
+}
+tr:last-child td   { border-bottom: none; }
+tr.total td        { font-weight: 600; background: var(--secondary-bg); }
+.td-right          { text-align: right; }
+
+/* ── Badge ── */
+.badge {
+  display:       inline-block;
+  font-size:     11px;
+  padding:       2px 8px;
+  border-radius: 99px;
+  font-weight:   500;
+}
+.badge-profit { background: var(--green-bg); color: var(--green-text); }
+.badge-loss   { background: var(--red-bg);   color: var(--red-text); }
+.badge-kemasan { background: var(--amber-bg); color: var(--amber-text); }
+
+.color-profit { color: var(--green-text); }
+.color-loss   { color: var(--red-text); }
+
+/* ── Responsive ── */
+@media (max-width: 520px) {
+  .kemasan-grid { grid-template-columns: 1fr; }
+  .row-header,
+  .transaksi-row { grid-template-columns: 1fr 110px 90px auto; }
+}
