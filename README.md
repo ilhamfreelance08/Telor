@@ -1,0 +1,2 @@
+# Telor
+Perhitungan Penjualan Telor
